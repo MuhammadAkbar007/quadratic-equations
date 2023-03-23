@@ -1,3 +1,7 @@
+# React JS app to solve quadratic equations with discriminant
+
+Created by Akbarjon Ahmadjonov
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
