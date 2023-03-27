@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [c, setC] = useState(0);
+
+  // useEffect(() => {}, [a, b, c]);
+
+  const onClear = () => {
+    setA(0);
+    setB(0);
+    setC(0);
+  };
 
   return (
     <div className="container text-center">
@@ -28,13 +36,13 @@ const App = () => {
                 type="number"
                 className="form-control coef"
                 placeholder="a"
-                // defaultValue={a}
-                value={a}
+                defaultValue={a ? a : "a"}
+                onChange={(e) => setA(e.target.value)}
               />
             </div>
             <div className="col-2">
               <h1>
-                x<sup>2</sup> +
+                x<sup>2</sup> &nbsp;+
               </h1>
             </div>
             <div className="col-2">
@@ -42,20 +50,24 @@ const App = () => {
                 type="number"
                 className="form-control coef"
                 placeholder="b"
+                defaultValue={b ? b : "b"}
+                onChange={(e) => setB(e.target.value)}
               />
             </div>
             <div className="col-2">
-              <h1>x +</h1>
+              <h1>x&nbsp; +</h1>
             </div>
             <div className="col-2">
               <input
                 type="number"
                 className="form-control coef"
                 placeholder="c"
+                defaultValue={c ? c : "c"}
+                onChange={(e) => setC(e.target.value)}
               />
             </div>
             <div className="col-2">
-              <h1>=0</h1>
+              <h1>=&nbsp;&nbsp;0</h1>
             </div>
           </div>
         </div>
@@ -63,10 +75,21 @@ const App = () => {
 
       <div className="row mt-5">
         <div className="col-3 offset-3">
-          <button className="btn btn-success">Hisoblash</button>
+          <button
+            className="btn btn-success"
+            disabled={a && b && c ? false : true}
+          >
+            Hisoblash
+          </button>
         </div>
         <div className="col-3">
-          <button className="btn btn-danger">Tozalash</button>
+          <button
+            className="btn btn-danger"
+            disabled={a && b && c ? false : true}
+            onClick={() => onClear()}
+          >
+            Tozalash
+          </button>
         </div>
       </div>
     </div>
