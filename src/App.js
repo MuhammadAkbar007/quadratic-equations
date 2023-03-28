@@ -5,8 +5,6 @@ const App = () => {
   const [b, setB] = useState(0);
   const [c, setC] = useState(0);
 
-  // useEffect(() => {}, [a, b, c]);
-
   const onClear = () => {
     setA(0);
     setB(0);
@@ -15,56 +13,36 @@ const App = () => {
 
   return (
     <div className="container text-center">
+      
       <h1 className="mt-3">
-        Kvadrat tenglamalarni <span className="text-danger">Diskriminant</span>{" "}
-        usulda hisoblash
+        Kvadrat tenglamalarni <span className="text-danger">Diskriminant</span> {" "} usulda hisoblash
       </h1>
+      
       <h4 className="mt-2 text-secondary">
-        Biz sizga{" "}
-        <span className="text-warning">
-          "ax<sup>2</sup> + bx + c = 0"
-        </span>{" "}
-        ko'rinishidagi tenglamani yechishga yordam beramiz. <br /> Quyida a, b
-        va c qiymatlarini kiritish kifoya:
+        Biz sizga{" "} <span className="text-warning"> &nbsp;&nbsp;ax<sup>2</sup> + bx + c = 0 &nbsp;</span>
+        {" "} ko'rinishidagi tenglamani yechishga yordam beramiz. <br /> Quyida a, b va c qiymatlarini kiritish kifoya:
       </h4>
 
       <div className="row mt-5">
         <div className="col-md-6 offset-md-3">
           <div className="row">
             <div className="col-2">
-              <input
-                type="number"
-                className="form-control coef"
-                placeholder="a"
-                defaultValue={a ? a : "a"}
-                onChange={(e) => setA(e.target.value)}
-              />
+              <input type="number" className="form-control coef" placeholder="a" value={a ? a : "a"}
+              onChange={(e) => setA(e.target.value)} />
             </div>
             <div className="col-2">
-              <h1>
-                x<sup>2</sup> &nbsp;+
-              </h1>
+              <h1> x<sup>2</sup> &nbsp;+ </h1>
             </div>
             <div className="col-2">
-              <input
-                type="number"
-                className="form-control coef"
-                placeholder="b"
-                defaultValue={b ? b : "b"}
-                onChange={(e) => setB(e.target.value)}
-              />
+              <input type="number" className="form-control coef" placeholder="b" value={b ? b : "b"} 
+              onChange={(e) => setB(e.target.value)} />
             </div>
             <div className="col-2">
               <h1>x&nbsp; +</h1>
             </div>
             <div className="col-2">
-              <input
-                type="number"
-                className="form-control coef"
-                placeholder="c"
-                defaultValue={c ? c : "c"}
-                onChange={(e) => setC(e.target.value)}
-              />
+              <input type="number" className="form-control coef" placeholder="c" value={c ? c : "c"}
+                onChange={(e) => setC(e.target.value)} />
             </div>
             <div className="col-2">
               <h1>=&nbsp;&nbsp;0</h1>
