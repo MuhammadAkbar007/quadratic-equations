@@ -3,8 +3,8 @@ import Buttons from "./Buttons";
 import Result from "./Result";
 
 const Input = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(1);
   const [c, setC] = useState(0);
   const [x1, setX1] = useState(0);
   const [x2, setX2] = useState(0);
@@ -17,9 +17,12 @@ const Input = () => {
   };
 
   const onCalc = () => {
-    setDisc(b * b - 4 * a * c);
-    setX1((-b + Math.sqrt(disc)) / (2 * a));
-    setX2(2);
+    let temp0 = b * b - 4 * a * c;
+    let temp1 = (-b + Math.sqrt(temp0)) / (2 * a);
+    let temp2 = (-b - Math.sqrt(temp0)) / (2 * a);
+    setDisc(temp0);
+    setX1(temp1);
+    setX2(temp2);
   };
 
   return (
@@ -32,8 +35,7 @@ const Input = () => {
                 type="number"
                 className="form-control coef"
                 placeholder="a"
-                value={a ? a : "a"}
-                onChange={(e) => setA(e.target.value)}
+                onChange={(e) => setA(Number(e.target.value))}
               />
             </div>
             <div className="col-2">
@@ -47,8 +49,7 @@ const Input = () => {
                 type="number"
                 className="form-control coef"
                 placeholder="b"
-                value={b ? b : "b"}
-                onChange={(e) => setB(e.target.value)}
+                onChange={(e) => setB(Number(e.target.value))}
               />
             </div>
             <div className="col-2">
@@ -59,8 +60,7 @@ const Input = () => {
                 type="number"
                 className="form-control coef"
                 placeholder="c"
-                value={c ? c : "c"}
-                onChange={(e) => setC(e.target.value)}
+                onChange={(e) => setC(Number(e.target.value))}
               />
             </div>
             <div className="col-2">
@@ -70,7 +70,7 @@ const Input = () => {
         </div>
       </div>
 
-      <Buttons a={a} b={b} c={c} onCalc={onCalc} onClear={onClear} />
+      <Buttons a={a} b={b} c={c} onCalc={() => onCalc()} onClear={onClear} />
 
       <Result a={a} b={b} c={c} x1={x1} x2={x2} disc={disc} />
     </>
