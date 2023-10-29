@@ -1,11 +1,11 @@
-const Buttons = ({ a, b, c, onCalc, onClear }) => {
+const Buttons = ({ a, b, c, onCalc, onClear, disabled }) => {
   return (
     <>
       <div className="row mt-5">
         <div className="col-3 offset-3">
           <button
             className="btn btn-success"
-            disabled={a && b && c ? false : true}
+            disabled={disabled}
             onClick={() => onCalc()}
           >
             Hisoblash
@@ -14,7 +14,13 @@ const Buttons = ({ a, b, c, onCalc, onClear }) => {
         <div className="col-3">
           <button
             className="btn btn-danger"
-            disabled={a || b || c ? false : true}
+            disabled={
+              typeof a === "number" ||
+              typeof b === "number" ||
+              typeof c === "number"
+                ? false
+                : true
+            }
             onClick={() => onClear()}
           >
             Tozalash

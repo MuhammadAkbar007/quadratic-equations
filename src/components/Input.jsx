@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Buttons from "./Buttons";
 import Result from "./Result";
 
 const Input = () => {
-  const [a, setA] = useState(1);
-  const [b, setB] = useState(1);
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
   const [c, setC] = useState(0);
   const [x1, setX1] = useState(0);
   const [x2, setX2] = useState(0);
   const [disc, setDisc] = useState(0);
+  const [res, setRes] = useState(false);
+  // const [disable, setDisable] = useState(true);
 
   const onClear = () => {
+    console.log("bef", a);
     setA(0);
     setB(0);
     setC(0);
+    console.log("aft", a);
   };
 
   const onCalc = () => {
@@ -23,6 +27,7 @@ const Input = () => {
     setDisc(temp0);
     setX1(temp1);
     setX2(temp2);
+    setRes(true);
   };
 
   return (
@@ -70,9 +75,16 @@ const Input = () => {
         </div>
       </div>
 
-      <Buttons a={a} b={b} c={c} onCalc={() => onCalc()} onClear={onClear} />
+      <Buttons
+        a={a}
+        b={b}
+        c={c}
+        onCalc={() => onCalc()}
+        onClear={onClear}
+        //disabled={disable}
+      />
 
-      <Result a={a} b={b} c={c} x1={x1} x2={x2} disc={disc} />
+      {res ? <Result disc={disc} a={a} b={b} c={c} x1={x1} x2={x2} /> : ""}
     </>
   );
 };
