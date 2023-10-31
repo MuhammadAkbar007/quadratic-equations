@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ReadyEquation from "./ReadyEquation";
+import Roots from "./Roots";
 
 const Inputs = () => {
   const [a, setA] = useState(1);
@@ -115,26 +116,7 @@ const Inputs = () => {
                 <ReadyEquation a={a} b={b} c={c} />
               </div>
               <div className="card-body">
-                {disc < 0 ? (
-                  <h1 className="text-danger">
-                    Kvadrat tenglama yechimga ega emas
-                  </h1>
-                ) : (
-                  <div>
-                    <h1>
-                      <span className="text-warning">Ildizlari: </span>
-                      {disc === 0
-                        ? `x1 = x2 = ${x1}`
-                        : `x1 = ${x1}; x2 = ${x2}`}
-                    </h1>
-                    <h3>
-                      <span className="text-warning">
-                        Ko&apos;paytuvchilar:
-                      </span>{" "}
-                      (x {x1})
-                    </h3>
-                  </div>
-                )}
+                <Roots disc={disc} x1={x2} x2={x2} />
               </div>
             </div>
           </div>
