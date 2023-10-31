@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReadyEquation from "./ReadyEquation";
 import Roots from "./Roots";
+import Multipliers from "./Multipliers";
 
 const Inputs = () => {
   const [a, setA] = useState(1);
@@ -15,7 +16,6 @@ const Inputs = () => {
   const [continued, setContinued] = useState(false);
 
   const handler = () => {
-    console.log(x1);
     let temp0 = b * b - 4 * a * c;
     let temp1 = (-b + Math.sqrt(temp0)) / (2 * a);
     let temp2 = (-b - Math.sqrt(temp0)) / (2 * a);
@@ -116,7 +116,14 @@ const Inputs = () => {
                 <ReadyEquation a={a} b={b} c={c} />
               </div>
               <div className="card-body">
-                <Roots disc={disc} x1={x2} x2={x2} />
+                <Roots disc={disc} x1={x1} x2={x2} />
+                {disc >= 0 ? (
+                  <div>
+                    <Multipliers disc={disc} x1={x1} x2={x2} />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
