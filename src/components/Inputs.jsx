@@ -2,6 +2,8 @@ import { useState } from "react";
 import ReadyEquation from "./ReadyEquation";
 import Roots from "./Roots";
 import Multipliers from "./Multipliers";
+import Discriminant from "./Discriminant";
+import RootAnswer from "./RootAnswer";
 
 const Inputs = () => {
   const [a, setA] = useState(1);
@@ -120,6 +122,18 @@ const Inputs = () => {
                 {disc >= 0 ? (
                   <div>
                     <Multipliers disc={disc} x1={x1} x2={x2} />
+                    <h2>Ildizlar yig&apos;indisi (-b/a) = {x1 + x2}</h2>
+                    <h2>Ildizlar ko&apos;paytmasi (c/a) = {x1 * x2}</h2>
+                    <Discriminant a={a} b={b} c={c} disc={disc} />
+                    {console.log(disc)}
+                    {disc === 0 ? (
+                      <RootAnswer val={"oneAnswer"} a={a} b={b} />
+                    ) : (
+                      <div>
+                        <RootAnswer sep={1} a={a} b={b} disc={disc} />
+                        <RootAnswer sep={2} a={a} b={b} disc={disc} />
+                      </div>
+                    )}
                   </div>
                 ) : (
                   ""
