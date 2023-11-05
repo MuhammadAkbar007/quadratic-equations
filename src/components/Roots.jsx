@@ -2,7 +2,7 @@ const Roots = ({ disc, x1, x2 }) => {
   return (
     <div>
       {disc < 0 ? (
-        <h1 className="text-danger">Kvadrat tenglama yechimga ega emas</h1>
+        <h1 className="text-danger">⊘ Kvadrat tenglama yechimga ega emas ⊘</h1>
       ) : (
         <div>
           <h1>

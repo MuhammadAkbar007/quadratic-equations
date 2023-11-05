@@ -125,13 +125,26 @@ const Inputs = () => {
                     <h2>Ildizlar yig&apos;indisi (-b/a) = {x1 + x2}</h2>
                     <h2>Ildizlar ko&apos;paytmasi (c/a) = {x1 * x2}</h2>
                     <Discriminant a={a} b={b} c={c} disc={disc} />
-                    {console.log(disc)}
                     {disc === 0 ? (
-                      <RootAnswer val={"oneAnswer"} a={a} b={b} />
+                      <RootAnswer val={"oneAnswer"} a={a} b={b} x1={x1} />
                     ) : (
                       <div>
-                        <RootAnswer sep={1} a={a} b={b} disc={disc} />
-                        <RootAnswer sep={2} a={a} b={b} disc={disc} />
+                        <RootAnswer
+                          sep={1}
+                          a={a}
+                          b={b}
+                          disc={disc}
+                          x1={x1}
+                          x2={x2}
+                        />
+                        <RootAnswer
+                          sep={2}
+                          a={a}
+                          b={b}
+                          disc={disc}
+                          x1={x1}
+                          x2={x2}
+                        />
                       </div>
                     )}
                   </div>
