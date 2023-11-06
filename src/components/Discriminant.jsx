@@ -4,7 +4,7 @@ const Discriminant = ({ a, b, c, disc }) => {
 
   return (
     <div>
-      <h2>
+      <h2 className="sign">
         <span className="text-danger">Diskriminant</span> (D) ={" "}
         <span className="text-warning">
           b<sup>2</sup> - 4ac

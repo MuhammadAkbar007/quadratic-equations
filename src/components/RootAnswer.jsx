@@ -1,9 +1,10 @@
 const RootAnswer = ({ val, sep, a, b, disc, x1, x2 }) => {
   let tempB = b > 0 ? `-${b}` : `${b}`;
-  let tempA = a < 0 ? `-${a}` : `${a}`;
+  let tempA = a < 0 ? `(${a})` : `${a}`;
+
   if (val) {
     return (
-      <h2>
+      <h2 className="sign">
         x<sub>1</sub> = x<sub>2</sub> ={" "}
         <span className="text-warning">-b / (2 * a)</span> = {tempB} / (2 *{" "}
         {tempA}) = {x1}
@@ -13,7 +14,7 @@ const RootAnswer = ({ val, sep, a, b, disc, x1, x2 }) => {
     return (
       <div>
         {sep === 1 ? (
-          <h2>
+          <h2 className="sign">
             x<sub>1</sub> ={" "}
             <span className="text-warning">
               (-b +{" "}
@@ -33,7 +34,7 @@ const RootAnswer = ({ val, sep, a, b, disc, x1, x2 }) => {
             ) / (2 * {tempA}) = {x1}
           </h2>
         ) : (
-          <h2>
+          <h2 className="sign">
             x<sub>2</sub> ={" "}
             <span className="text-warning">
               (-b -{" "}

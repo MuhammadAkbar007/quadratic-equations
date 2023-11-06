@@ -15,15 +15,19 @@ const Inputs = () => {
   const [x2, setX2] = useState(0);
   const [x1, setX1] = useState(0);
   const [disc, setDisc] = useState(0);
+  const [sum, setSum] = useState(0);
   const [continued, setContinued] = useState(false);
 
   const handler = () => {
     let temp0 = b * b - 4 * a * c;
     let temp1 = (-b + Math.sqrt(temp0)) / (2 * a);
     let temp2 = (-b - Math.sqrt(temp0)) / (2 * a);
-    setDisc(temp0);
-    setX1(temp1);
-    setX2(temp2);
+    let temp3 = temp1 + temp2;
+
+    setDisc(Number.isInteger(temp0) ? temp0 : temp0.toFixed(1));
+    setX1(Number.isInteger(temp1) ? temp1 : temp1.toFixed(1));
+    setX2(Number.isInteger(temp2) ? temp2 : temp2.toFixed(1));
+    setSum(Number.isInteger(temp3) ? temp3 : temp3.toFixed(1));
 
     setContinued(true);
   };
@@ -56,7 +60,7 @@ const Inputs = () => {
   return (
     <div className="mt-5">
       <div className="row">
-        <div className="col-md-6 offset-md-3">
+        <div className="col-md-6 offset-md-3 col-xs-12">
           <div className="row">
             <div className="col-2">
               <input
@@ -68,8 +72,7 @@ const Inputs = () => {
             </div>
             <div className="col-2">
               <h1>
-                {" "}
-                x<sup>2</sup> &nbsp;+{" "}
+                &nbsp;x<sup>2</sup>&nbsp;+
               </h1>
             </div>
             <div className="col-2">
@@ -81,7 +84,7 @@ const Inputs = () => {
               />
             </div>
             <div className="col-2">
-              <h1>x&nbsp; +</h1>
+              <h1>&nbsp;x+</h1>
             </div>
             <div className="col-2">
               <input
@@ -92,7 +95,7 @@ const Inputs = () => {
               />
             </div>
             <div className="col-2">
-              <h1>=&nbsp;&nbsp;0</h1>
+              <h1>&nbsp;=&nbsp;0</h1>
             </div>
           </div>
         </div>
@@ -118,12 +121,16 @@ const Inputs = () => {
                 <ReadyEquation a={a} b={b} c={c} />
               </div>
               <div className="card-body">
-                <Roots disc={disc} x1={x1} x2={x2} />
+                <Roots disc={disc} x1={x1} x2={x2} a={a} b={b} c={c} />
                 {disc >= 0 ? (
                   <div>
                     <Multipliers disc={disc} x1={x1} x2={x2} />
-                    <h2>Ildizlar yig&apos;indisi (-b/a) = {x1 + x2}</h2>
-                    <h2>Ildizlar ko&apos;paytmasi (c/a) = {x1 * x2}</h2>
+                    <h2 className="sign">
+                      Ildizlar yig&apos;indisi (-b/a) = {sum}
+                    </h2>
+                    <h2 className="sign">
+                      Ildizlar ko&apos;paytmasi (c/a) = {x1 * x2}
+                    </h2>
                     <Discriminant a={a} b={b} c={c} disc={disc} />
                     {disc === 0 ? (
                       <RootAnswer val={"oneAnswer"} a={a} b={b} x1={x1} />

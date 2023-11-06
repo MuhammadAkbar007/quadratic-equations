@@ -13,15 +13,28 @@ code {
     monospace;
 }
 
-.coef {
-  height: 60px;
-  width: 90px;
-}
-
 .coef::placeholder {
   text-align: center;
 }
 
 .bold {
   font-weight: bold;
+}
+
+@media (min-width: 476px) and (max-width: 3333333px) {
+  .coef {
+    height: 60px;
+    width: 90px;
+  }
+}
+
+@media (min-width: 0) and (max-width: 475px) {
+  .coef {
+    height: 45px;
+    width: 60px;
+  }
+
+  .sign {
+    font-size: 20px;
+  }
 }
