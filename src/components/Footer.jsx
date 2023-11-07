@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="col-3 offset-8 my-5 pt-5">
+    <div className="col-3 offset-8 mt-5 mb-3 pt-5">
       <h5>
         <i>Muallif : Akramjon Rahmonov</i>
       </h5>
